@@ -9,9 +9,14 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'less-rails'
+gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
+gem 'omniauth-google-oauth2'
+gem 'devise'
+gem 'httparty'
+gem 'nokogiri'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 group :test do
   gem 'rspec-rails'
   gem 'konacha'

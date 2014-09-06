@@ -1,0 +1,7 @@
+- if user_signed_in?
+  = "Welcome #{current_user.email}"
+- else
+  =link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
+
+- if @albums.present?
+  = @albums
