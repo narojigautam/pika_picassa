@@ -1,8 +1,8 @@
 require 'httparty'
 require 'response_parser'
 class Picasa
-  include HTTParty
   include ResponseParser
+  include HTTParty
   base_uri 'https://picasaweb.google.com'
 
   def get_albums_for user_id, token

@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
     credentials = access_token.credentials
     user = User.where(:uid => access_token.uid).first
 
-    unless user
+    if user
+      user.update_attributes(token: credentials["token"])
+    else
       user = User.create(uid: access_token.uid, email: data["email"], token: credentials["token"])
     end
     user

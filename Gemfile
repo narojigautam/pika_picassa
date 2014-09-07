@@ -16,6 +16,7 @@ gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'httparty'
 gem 'nokogiri'
+gem 'virtus'
 
 group :test do
   gem 'rspec-rails'
