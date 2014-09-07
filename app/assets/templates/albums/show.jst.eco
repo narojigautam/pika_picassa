@@ -1,0 +1,1 @@
+<%= @album.get("id") %> <%= @album.get("title") %>

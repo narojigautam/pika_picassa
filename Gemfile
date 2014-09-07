@@ -17,6 +17,7 @@ gem 'devise'
 gem 'httparty'
 gem 'nokogiri'
 gem 'virtus'
+gem 'backbone-on-rails'
 
 group :test do
   gem 'rspec-rails'
