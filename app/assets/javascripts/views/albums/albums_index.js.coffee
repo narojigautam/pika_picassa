@@ -1,11 +1,15 @@
 class PikaPicassa.Views.AlbumsIndex extends Backbone.View
+  template: JST['albums/index']
+  tagName: 'tbody'
+
   initialize: ->
     _.bindAll(@, 'add')
     @on "reset", => @reset_collection()
 
   render: ->
     @reset_collection()
-    $("#albums-list").append(@$el)
+    $("#albums-list").append(@template)
+    $("#albums-list table").append(@$el)
 
   reset_collection: ->
     _(@albumViews).each (album_v) ->

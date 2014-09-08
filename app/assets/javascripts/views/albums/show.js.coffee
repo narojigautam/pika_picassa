@@ -1,5 +1,5 @@
 class PikaPicassa.Views.AlbumsShow extends Backbone.View
-  tagName: "p"
+  tagName: "tr"
   template: JST['albums/show']
 
   render: =>
