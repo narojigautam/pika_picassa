@@ -1,0 +1,5 @@
+<div class="page-header">
+  <h2><%= @album.get('title') %><small><%= @album.get('summary') %></small></h2>
+</div>
+<div id="pictures">
+</div>

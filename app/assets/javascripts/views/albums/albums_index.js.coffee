@@ -16,9 +16,9 @@ class PikaPicassa.Views.AlbumsIndex extends Backbone.View
       album_v.off()
       album_v.remove()
     @albumViews = []
-    _(PikaPicassa.albumsCollection.models).each(@add)
+    _(@collection.models).each(@add)
 
   add: (_model) ->
-    albumView = new PikaPicassa.Views.AlbumsShow(model: (_model))
+    albumView = new PikaPicassa.Views.AlbumShow(model: (_model))
     @albumViews.push(albumView)
     @$el.append(albumView.render().$el)

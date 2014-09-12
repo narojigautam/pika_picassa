@@ -4,10 +4,8 @@ window.PikaPicassa =
   Views: {}
   Routers: {}
   initialize: ->
-    PikaPicassa.albumsCollection = new PikaPicassa.Collections.Albums()
-    PikaPicassa.albumsIndexView = new PikaPicassa.Views.AlbumsIndex()
     PikaPicassa.albumsRouter = new PikaPicassa.Routers.Albums()
-    Backbone.history.start(pushState: true)
+    Backbone.history.start()
 
 $(document).ready ->
   PikaPicassa.initialize()

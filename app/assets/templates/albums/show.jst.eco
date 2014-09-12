@@ -1,4 +1,4 @@
 <td>
-  <a href="<%= @album.get("url") %>"><%= @album.get("title") %></a>
+  <a href="#albums/<%= @album.get("album_id") %>"><%= @album.get("title") %></a>
 </td>
 <td><%= @album.get("summary") %></td>

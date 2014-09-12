@@ -1,0 +1,5 @@
+<div class="thumbnail">
+  <img src="<%= @picture.get('image_url') %>" alt="<%= @picture.get('title') %>">
+  <h3><%= @picture.get('title') %></h3>
+  <p><%= @picture.get('summary') %></p>
+</div>
