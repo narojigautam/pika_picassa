@@ -21,6 +21,14 @@ class Picasa
     parse_into_complete_album(pics_response)
   end
 
+  def comment_on album_id, pic_id, comment
+    self.class.post(
+      post_comment_url_for(album_id, pic_id),
+      body: form_comment_req(comment),
+      headers: post_req_headers
+    )
+  end
+
   private
 
   def albums_url
@@ -29,5 +37,23 @@ class Picasa
 
   def pics_url_for album_id
     "/data/feed/api/user/#{@user_id}/albumid/#{album_id}"
+  end
+
+  def post_comment_url_for album_id, pic_id
+    "/data/feed/api/user/#{@user_id}/albumid/#{album_id}/photoid/#{pic_id}"
+  end
+
+  def form_comment_req comment
+    "<entry xmlns='http://www.w3.org/2005/Atom'>" +
+    "<content>#{comment}</content>" +
+    "<category scheme='http://schemas.google.com/g/2005#kind'" +
+    " term='http://schemas.google.com/photos/2007#comment'/></entry>"
+  end
+
+  def post_req_headers
+    {
+      "Content-Type" => "application/atom+xml",
+      "Authorization" => "Bearer #{@token}"
+    }
   end
 end

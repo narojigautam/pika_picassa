@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end
   root 'home#index'
   resources :albums, only: [:index, :show]
+  resources :picture_comments, only: [:create]
 end

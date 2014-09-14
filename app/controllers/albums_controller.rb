@@ -1,4 +1,3 @@
-require 'picasa'
 class AlbumsController < ApplicationController
   respond_to :json
 
@@ -13,11 +12,5 @@ class AlbumsController < ApplicationController
     album_id = params[:id]
     @album = picasa_requester.get_album album_id
     render json: @album
-  end
-
-  private
-
-  def picasa_requester
-    @requester ||= Picasa.new(current_user.uid, current_user.token)
   end
 end

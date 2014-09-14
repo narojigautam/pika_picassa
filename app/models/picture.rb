@@ -6,4 +6,5 @@ class Picture
   attribute :summary, String
   attribute :image_url, String
   attribute :album_id, String
+  attribute :comments, PicCommentCollection[PictureComment]
 end

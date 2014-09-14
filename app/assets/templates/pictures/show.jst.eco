@@ -2,4 +2,6 @@
   <img src="<%= @picture.get('image_url') %>" alt="<%= @picture.get('title') %>">
   <h3><%= @picture.get('title') %></h3>
   <p><%= @picture.get('summary') %></p>
+  <textarea id="comment-input"/>
+  <input type="submit" value="Comment" class="btn btn-primary" id="create-comment"/>
 </div>
