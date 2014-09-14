@@ -22,6 +22,15 @@ module ResponseParser
     album
   end
 
+  def parse_into_comments comments_data, picture_id
+    comments_parsed = Nokogiri.XML(comments_data)
+    comments = PicCommentCollection.new
+    comments_parsed.search("feed entry").each do |comment_data|
+      comments << get_comment_from(comment_data, picture_id)
+    end
+    comments
+  end
+
   private
 
   def get_album_from album_data
@@ -39,6 +48,14 @@ module ResponseParser
       summary: pic_data.search('summary').first.try(:content),
       image_url: pic_data.search("content")[0]['src'],
       album_id: album_id
+    )
+  end
+
+  def get_comment_from comment_data, picture_id
+    PictureComment.new(
+      picture_id: picture_id,
+      comment_id: comments_data.search("id").first.content.split("/commentid/")[1],
+      comment: comments_data.search('content').first.content
     )
   end
 end

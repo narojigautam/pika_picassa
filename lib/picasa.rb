@@ -29,6 +29,12 @@ class Picasa
     )
   end
 
+  def get_comments_of album_id, pic_id
+    comments_xml = self.class.get comments_url_for(album_id, pic_id),
+      query: { kind: "comments", token: @token}
+    parse_into_comments(comments_xml, pic_id)
+  end
+
   private
 
   def albums_url
@@ -42,6 +48,8 @@ class Picasa
   def post_comment_url_for album_id, pic_id
     "/data/feed/api/user/#{@user_id}/albumid/#{album_id}/photoid/#{pic_id}"
   end
+
+  alias_method :comments_url_for, :post_comment_url_for
 
   def form_comment_req comment
     "<entry xmlns='http://www.w3.org/2005/Atom'>" +

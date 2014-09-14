@@ -4,4 +4,7 @@
   <p><%= @picture.get('summary') %></p>
   <textarea id="comment-input"/>
   <input type="submit" value="Comment" class="btn btn-primary" id="create-comment"/>
+  <h4>Comments</h4>
+  <ul id="comments-list">
+  </ul>
 </div>

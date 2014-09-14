@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   root 'home#index'
-  resources :albums, only: [:index, :show]
-  resources :picture_comments, only: [:create]
+  resources :albums, only: [:index, :show] do
+    resources :pictures, only: [] do
+      resources :picture_comments, only: [:index,:create]
+    end
+  end
 end
