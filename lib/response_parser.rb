@@ -54,8 +54,8 @@ module ResponseParser
   def get_comment_from comment_data, picture_id
     PictureComment.new(
       picture_id: picture_id,
-      comment_id: comments_data.search("id").first.content.split("/commentid/")[1],
-      comment: comments_data.search('content').first.content
+      comment_id: comment_data.search("id").first.content.split("/commentid/")[1],
+      comment: comment_data.search('content').first.content
     )
   end
 end

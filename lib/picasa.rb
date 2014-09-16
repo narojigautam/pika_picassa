@@ -31,7 +31,7 @@ class Picasa
 
   def get_comments_of album_id, pic_id
     comments_xml = self.class.get comments_url_for(album_id, pic_id),
-      query: { kind: "comments", token: @token}
+      query: { kind: "comment"}, headers: post_req_headers
     parse_into_comments(comments_xml, pic_id)
   end
 
